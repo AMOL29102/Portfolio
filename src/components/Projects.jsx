@@ -33,10 +33,10 @@ const projects = [
   },
   {
     title: 'Portfolio Website',
-    description: 'A personal portfolio highlighting projects, skills, and achievements, designed with a clean, responsive layout to ensure an engaging user experience.',
+    description: 'A personal portfolio showcasing projects, skills, and achievements with a clean, responsive design. It offers an engaging user experience, featuring interactive elements, live demos, and repositories to highlight expertise and accomplishments.',
     image: '/images/Portfolio.png',
-    demo: 'https://example.com',
-    source: 'https://github.com',
+    demo: 'https://amolpatil-ten.vercel.app/',
+    source: 'https://amolpatil-ten.vercel.app/',
     techStack: ['', ''],
     techImages: ['/images/react.png', '/images/tailwind.png']
   }
