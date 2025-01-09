@@ -49,7 +49,7 @@ function Projects() {
   });
 
   return (
-    <div className="min-h-screen py-20 pb-4 bg-gray-900/30">
+    <div className="min-h-screen py-2 pb-24 bg-gray-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center mb-16">Projects</h2>
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -65,7 +65,7 @@ function Projects() {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-auto  lg:min-h-[20rem]  p-0.5 rounded-lg"
+                  className="w-auto  lg:min-h-[20rem] p-0.5 rounded-lg"
                 />
                 <hr className='border-gray-500'/>
                 <div className="absolute inset-0 bg-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { motion, useScroll } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -17,7 +17,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: i * 0.1, // Delay each item
+      delay: i * 0.0,
       duration: 0.3,
       ease: 'easeOut',
     },
@@ -27,14 +27,18 @@ const itemVariants = {
 function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
 
   useEffect(() => {
-    const unsubscribe = scrollY.onChange((latest) => {
-      setIsScrolled(latest > 50);
-    });
-    return () => unsubscribe();
-  }, [scrollY]);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 32);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -44,9 +48,8 @@ function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -63,7 +66,7 @@ function Navbar() {
               onClick={toggleMenu}
               className="text-gray-300 hover:text-white focus:outline-none"
               initial={{ scale: 1 }}
-              animate={{ scale: menuOpen ? 1.2 : 1 }} // Add scaling effect
+              animate={{ scale: menuOpen ? 1.2 : 1 }}
               transition={{ type: 'spring', stiffness: 300, damping: 10 }}
             >
               {menuOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
@@ -77,14 +80,13 @@ function Navbar() {
                   key={item.name}
                   to={item.to}
                   spy={true}
-                  smooth={true}
-                  offset={-150}
-                  duration={700}
+                  offset={-150} // Adjust as needed
                   className="cursor-pointer px-4 py-2 rounded-md text-lg font-medium hover:text-blue-400 transition-all duration-300 font-['Poppins']"
                   activeClass="text-blue-500 font-semibold"
                 >
                   {item.name}
                 </Link>
+
               ))}
             </div>
           </div>
@@ -103,7 +105,7 @@ function Navbar() {
                 variants={itemVariants}
                 initial="hidden"
                 animate="visible"
-                custom={index} // Pass the index for delay
+                custom={index}
               >
                 <Link
                   to={item.to}
@@ -111,7 +113,7 @@ function Navbar() {
                   smooth={true}
                   offset={-100}
                   duration={500}
-                  onClick={() => setMenuOpen(false)} // Close menu on click
+                  onClick={() => setMenuOpen(false)}
                   className="block py-2 text-lg font-medium hover:text-blue-400 transition-all duration-300 font-['Poppins']"
                   activeClass="text-blue-500 font-semibold"
                 >
