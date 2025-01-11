@@ -18,7 +18,7 @@ const projects = [
     description: 'A blockchain-powered system for authenticating products, combating counterfeit goods in global trade. Features include automated QR code generation, consumer code dispatch, and scalable tracking of products across manufacturers, sellers, and customers.',
     image: '/images/Project2.jpg',
     // demo: 'https://example.com',
-    source: 'https://github.com',
+    source: 'https://github.com/AMOL29102/Fake-Product-Identification',
     techStack: ['', '', '', '', '',''],
     techImages: ['/images/pg.png', '/images/express.png', '/images/react.png', '/images/node.png', '/images/css.png', '/images/solidity.png']
   },
@@ -27,7 +27,7 @@ const projects = [
     description: 'A platform to combat food waste by connecting restaurants with surplus food to individuals in need. RescueBites streamlines food access via pincode, enhances community engagement, and automates food request removal after 18 hours to optimize resource management.',
     image: '/images/Project3.png',
     // demo: 'https://example.com',
-    source: 'https://github.com',
+    source: 'https://github.com/AMOL29102/Leftover-Food-Management',
     techStack: ['', '', '', '', ''],
     techImages: ['/images/pg.png', '/images/express.png', '/images/react.png', '/images/node.png', '/images/css.png']
   },
@@ -49,7 +49,7 @@ function Projects() {
   });
 
   return (
-    <div className="min-h-screen py-2 pb-24 bg-gray-900/30">
+    <div className="min-h-screen py-20 bg-gray-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-center mb-16">Projects</h2>
         <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">

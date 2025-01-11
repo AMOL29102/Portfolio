@@ -8,11 +8,11 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Background from './components/Background';
 import MorphingShapes from './components/MorphingShapes';
-import "./style.css"
+import "./style.css" 
 
 function App() {
   return (
-    <div className="relative min-h-screen text-white overflow-y-scroll scrollbar-hide">
+    <div className="min-h-screen text-white scrollbar-hide">
       {/* Global Background */}
       <Background />
 

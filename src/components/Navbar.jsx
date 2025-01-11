@@ -80,7 +80,7 @@ function Navbar() {
                   key={item.name}
                   to={item.to}
                   spy={true}
-                  offset={-150} // Adjust as needed
+                  offset={-100} // Adjust as needed
                   className="cursor-pointer px-4 py-2 rounded-md text-lg font-medium hover:text-blue-400 transition-all duration-300 font-['Poppins']"
                   activeClass="text-blue-500 font-semibold"
                 >
@@ -111,7 +111,7 @@ function Navbar() {
                   to={item.to}
                   spy={true}
                   smooth={true}
-                  offset={-100}
+                  offset={-150}
                   duration={500}
                   onClick={() => setMenuOpen(false)}
                   className="block py-2 text-lg font-medium hover:text-blue-400 transition-all duration-300 font-['Poppins']"

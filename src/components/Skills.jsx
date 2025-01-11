@@ -17,7 +17,6 @@ const skills = [
   { name: 'Figma', icon: '/images/figma.png' },
   { name: 'AWS', icon: '/images/aws.png' },
   { name: 'Postman', icon: '/images/postman.png' },
-
 ];
 
 function Skills() {
@@ -27,19 +26,22 @@ function Skills() {
   });
 
   const containerVariants = {
-    hidden: {},
+    hidden: { opacity: 0 },
     visible: {
+      opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
+        duration: 0.4,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, scale: 0 },
+    hidden: { opacity: 0, scale: 0.8, y: 50 },
     visible: {
       opacity: 1,
       scale: 1,
+      y: 0,
       transition: {
         duration: 0.3,
         ease: 'easeOut',
@@ -50,7 +52,7 @@ function Skills() {
   return (
     <div className="min-h-screen py-20 bg-gray-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-16">Skills</h2>
+        <h2 className="text-4xl font-bold text-center mb-16 text-white">Skills</h2>
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -62,17 +64,17 @@ function Skills() {
             <motion.div
               key={skill.name}
               variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.1 }}
               className="flex flex-col items-center"
             >
-              <div className="relative  w-32 h-32 rounded-[20%] bg-gray-800 bg-opacity-50 border-2 border-blue-500 flex items-center justify-center text-4xl mb-4 transition-transform shadow-lg hover:shadow-blue-500/50">
+              <div className="relative w-32 h-32 rounded-[20%] bg-gray-800 bg-opacity-50 border-2 border-blue-500 flex items-center justify-center text-4xl mb-4 shadow-lg hover:shadow-blue-500/50 transition-all">
                 <img
                   src={skill.icon}
                   alt={`${skill.name} icon`}
                   className="w-16 h-16 object-contain"
                 />
               </div>
-              <span className="text-lg font-medium">{skill.name}</span>
+              <span className="text-lg font-medium text-white">{skill.name}</span>
             </motion.div>
           ))}
         </motion.div>

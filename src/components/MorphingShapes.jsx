@@ -15,7 +15,7 @@ function MorphingShapes() {
       0.1,
       1000
     );
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // alpha: true ensures transparency
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
@@ -28,7 +28,7 @@ function MorphingShapes() {
     };
     window.addEventListener('resize', resizeHandler);
 
-    // Geometries
+    // Geometries and Material
     const geometries = [
       new THREE.IcosahedronGeometry(20, 1),
       new THREE.SphereGeometry(20, 20, 20),
@@ -57,11 +57,11 @@ function MorphingShapes() {
     // Geometry switch interval
     const switchGeometry = () => {
       currentGeometryIndex = (currentGeometryIndex + 1) % geometries.length;
-      shape.geometry.dispose(); // Dispose of the old geometry
+      shape.geometry.dispose();
       shape.geometry = geometries[currentGeometryIndex];
     };
 
-    const interval = setInterval(switchGeometry, 3000); // Change every 3 seconds
+    const interval = setInterval(switchGeometry, 3000);
 
     // Animation Loop
     const animate = () => {
@@ -83,7 +83,18 @@ function MorphingShapes() {
     };
   }, []);
 
-  return <div ref={containerRef} className="absolute inset-0 -z-10" style={{ background: 'transparent' }} />;
+  return (
+    <div
+      ref={containerRef}
+      className="absolute inset-0 -z-10"
+      style={{
+        width: '95vw', // Prevent horizontal scrollbar
+        height: '100vh',
+        overflow: 'hidden',
+        background: 'transparent',
+      }}
+    />
+  );
 }
 
 export default MorphingShapes;
