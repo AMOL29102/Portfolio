@@ -1,47 +1,118 @@
 import React from 'react';
 import { Element } from 'react-scroll';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
-import Background from './components/Background';
-import MorphingShapes from './components/MorphingShapes';
-import "./style.css" 
 
-function App() {
+import { ThemeProvider, useTheme } from './contexts/ThemeContext';
+
+import DarkBackground from './Backgrounds/Dark/Background';
+import LightBackground from './Backgrounds/Light/Background1';
+
+import DarkMorphingShapes from './Backgrounds/Dark/MorphingShapes';
+import LightMorphingShapes from './Backgrounds/Light/MorphingShapes';
+
+
+
+import DarkNavbar from './DarkComponents/Navbar';
+import DarkHero from './DarkComponents/Hero';
+import DarkAbout from './DarkComponents/About';
+import DarkSkills from './DarkComponents/Skills';
+import DarkProjects from './DarkComponents/Projects';
+import DarkContact from './DarkComponents/Contact';
+
+import LightNavbar from './LightComponents/Navbar';
+import LightHero from './LightComponents/Hero';
+import LightAbout from './LightComponents/About';
+import LightSkills from './LightComponents/Skills';
+import LightProjects from './LightComponents/Projects';
+import LightContact from './LightComponents/Contact';
+
+import "./style.css"
+
+function AppContent() {
+
+  const { isDarkMode } = useTheme();
+
   return (
     <div className="min-h-screen text-white scrollbar-hide">
-      {/* Global Background */}
-      <Background />
 
-      {/* Navigation */}
-      <Navbar />
+      {isDarkMode ?
+        <>
+          <DarkBackground />
 
-      {/* Sections */}
-      <Element name="home">
-        <Hero />
-      </Element>
-      <Element name="about">
-        <About />
-      </Element>
-      <Element name="skills">
-        <Skills />
-      </Element>
-      <Element name="projects">
-        <Projects />
-      </Element>
+          <DarkNavbar />
+          
+          <Element name="home">
+            <DarkHero />
 
-      {/* Contact Section with MorphingShapes */}
-      <div className="relative">
-        <MorphingShapes />
-        <Element name="contact">
-          <Contact />
-        </Element>
-      </div>
+          </Element>
+          <Element name="about">
+            <DarkAbout />
+
+          </Element>
+          <Element name="skills">
+            <DarkSkills />
+
+          </Element>
+          <Element name="projects">
+            <DarkProjects />
+
+          </Element>
+
+          {/* Contact Section with MorphingShapes */}
+          <div className="relative">
+            <DarkMorphingShapes />
+
+            <Element name="contact">
+              <DarkContact />
+
+            </Element>
+          </div>
+        </>
+        :
+
+        <>
+          <LightBackground />
+
+          <LightNavbar />
+
+          <Element name="home">
+            <LightHero />
+          </Element>
+
+          <Element name="about">
+            <LightAbout />
+          </Element>
+
+          <Element name="skills">
+            <LightSkills />
+          </Element>
+
+          <Element name="projects">
+            <LightProjects />
+          </Element>
+
+          {/* Contact Section with MorphingShapes */}
+          <div className="relative">
+            
+            <LightMorphingShapes />
+
+            <Element name="contact">
+              <LightContact />
+
+            </Element>
+          </div>
+        </>}
     </div>
   );
 }
+
+
+function App() {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
+  );
+}
+
 
 export default App;

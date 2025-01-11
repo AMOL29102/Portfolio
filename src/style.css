@@ -1,3 +1,5 @@
+
+
 /* For Chrome, Edge, and Safari */
 ::-webkit-scrollbar {
     width: 6px; /* Width of the scrollbar */
@@ -15,8 +17,9 @@
   
   /* For Firefox (using scrollbar-width and scrollbar-color properties) */
   * {
-    scrollbar-width: thin; /* Makes the scrollbar thinner */
-    scrollbar-color: #000000 #000000; /* Thumb color and track color */
+    scrollbar-width: none; /* Makes the scrollbar thinner */
+    /* scrollbar-color: #ffffff #ffffff;  */
+    /* Thumb color and track color */
   }
   
   
