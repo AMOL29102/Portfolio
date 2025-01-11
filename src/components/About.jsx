@@ -118,10 +118,10 @@ function About() {
                 <li>📝 Co-authored and published a research paper on <p className='inline font-semibold'> Blockchain-based Authentication for Genuine Goods</p> in <p className='inline font-semibold'> IEEE ICBDS Conference. </p></li>
                 <li>🎮 Hobbies : <br /> Playing Chess, Coding and Geopolitics.</li>
                 <li><p>🌐 Find me on coding platforms : </p><br />
-                  <div className='inline p-16 '>
-                    <a href="https://leetcode.com/u/amolpatilamp555/" target='_blank' className="text-blue-400 ml-16 hover:text-blue-500"><ExternalLink className="w-4 h-4 inline" />  LeetCode</a>
+                  <div className='inline lg:p-8'>
+                    <a href="https://leetcode.com/u/amolpatilamp555/" target='_blank' className="text-blue-400 lg:ml-12 hover:text-blue-500"><ExternalLink className="w-4 h-4 inline" />  LeetCode</a>
                   </div>
-                  <div className='inline p-16 '>
+                  <div className='inline lg:p-8 p-4'>
                     <a href="https://www.codechef.com/users/amolpatilamp55" target='_blank' className="text-blue-400  hover:text-blue-500"><ExternalLink className="w-4 h-4 inline" /> CodeChef</a>
                   </div>
                 </li>
