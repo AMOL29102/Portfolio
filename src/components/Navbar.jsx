@@ -56,7 +56,7 @@ function Navbar() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-3xl font-bold font-['Poppins'] bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent"
+            className="text-3xl font-bold font-['Poppins'] text-blue-400"
           >
             Portfolio
           </motion.div>
