@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
@@ -29,6 +29,10 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
+  
+  // Refs for menu and button to detect clicks outside
+  const menuRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,6 +43,24 @@ function Navbar() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      // Check if the click is outside of the menu and button
+      if (
+        menuRef.current && !menuRef.current.contains(e.target) &&
+        buttonRef.current && !buttonRef.current.contains(e.target)
+      ) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -66,6 +88,7 @@ function Navbar() {
           {/* Hamburger Menu for Mobile */}
           <div className="md:hidden">
             <motion.button
+              ref={buttonRef} // Attach ref to the button
               onClick={toggleMenu}
               className="text-gray-600 hover:text-gray-900 focus:outline-none"
               initial={{ scale: 1 }}
@@ -79,7 +102,6 @@ function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              {/* Navigation Items */}
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -92,8 +114,6 @@ function Navbar() {
                   {item.name}
                 </Link>
               ))}
-
-              {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
                 className="flex items-center justify-center p-2 rounded-full hover:bg-gray-200 transition-colors duration-300"
@@ -107,9 +127,11 @@ function Navbar() {
             </div>
           </div>
         </div>
+
         {/* Mobile Menu */}
         {menuOpen && (
           <motion.div
+            ref={menuRef} // Attach ref to the menu
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}

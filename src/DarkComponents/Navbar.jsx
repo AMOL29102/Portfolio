@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
@@ -29,6 +29,7 @@ function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
+  const menuRef = useRef(null); // Ref for the mobile menu
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +43,21 @@ function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    // Close the menu when clicking outside of it
+    const handleClickOutside = (e) => {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
@@ -50,8 +66,9 @@ function Navbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
-        }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-gray-900/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -105,11 +122,12 @@ function Navbar() {
               </button>
             </div>
           </div>
-
         </div>
+
         {/* Mobile Menu */}
         {menuOpen && (
           <motion.div
+            ref={menuRef} // Attach the ref to the mobile menu div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
