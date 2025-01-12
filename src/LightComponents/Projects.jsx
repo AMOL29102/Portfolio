@@ -32,7 +32,7 @@ const projects = [
   {
     title: 'Portfolio Website',
     description: 'A personal portfolio showcasing projects, skills, and achievements with a clean, responsive design. It offers an engaging user experience, featuring interactive elements, live demos, and repositories to highlight expertise and accomplishments.',
-    image: '/images/LightPortfolio.png',
+    image: '/images/LightPortfolio2.png',
     demo: 'https://patilamol.vercel.app/',
     source: 'https://github.com/AMOL29102/Portfolio',
     techStack: ['', ''],

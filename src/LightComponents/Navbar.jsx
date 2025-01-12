@@ -73,7 +73,7 @@ function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#AED3EA] shadow-xl bg-opacity-[0.95]' : 'bg-transparent'
+        isScrolled ? 'bg-[#f0f0f0] shadow-xl bg-opacity-[0.95]' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +81,7 @@ function Navbar() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-3xl font-bold font-['Poppins'] text-blue-600"
+            className="text-3xl font-bold font-['Poppins'] text-[#00B7FF]"
           >
             Portfolio
           </motion.div>
@@ -90,7 +90,7 @@ function Navbar() {
             <motion.button
               ref={buttonRef} // Attach ref to the button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
+              className="text-gray-600 hover:text-[#00B7FF] focus:outline-none"
               initial={{ scale: 1 }}
               animate={{ scale: menuOpen ? 1.2 : 1 }}
               transition={{ type: 'spring', stiffness: 300, damping: 10 }}
@@ -108,15 +108,15 @@ function Navbar() {
                   to={item.to}
                   spy={true}
                   offset={-100} // Adjust as needed
-                  className="cursor-pointer px-4 py-2 rounded-md text-lg font-medium text-black hover:text-blue-600 transition-all duration-300 font-['Poppins']"
-                  activeClass="text-[#267DE8] font-semibold"
+                  className="cursor-pointer px-4 py-2 rounded-md text-lg font-medium text-black hover:text-[#00B7FF] transition-all duration-300 font-['Poppins']"
+                  activeClass="text-[#00B7FF] font-semibold"
                 >
                   {item.name}
                 </Link>
               ))}
               <button
                 onClick={toggleTheme}
-                className="flex items-center justify-center p-2 rounded-full hover:bg-gray-200 transition-colors duration-300"
+                className="flex items-center justify-center p-2 rounded-full hover:bg-[#00B7FF] transition-colors duration-300"
               >
                 {isDarkMode ? (
                   <Sun className="w-6 h-6 text-white" />
@@ -135,7 +135,7 @@ function Navbar() {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="md:hidden bg-white/95 text-gray-800 px-4 py-6 rounded-lg shadow-lg"
+            className="md:hidden bg-white/95 text-[#00B7FF] px-4 py-6 rounded-lg shadow-lg"
           >
             <button onClick={toggleTheme} className="mb-4">
               {isDarkMode ? <Sun className="w-6 h-6 text-white" /> : <Moon className="w-6 h-6" />}
@@ -156,8 +156,8 @@ function Navbar() {
                   offset={-150}
                   duration={500}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2 text-lg font-medium text-black hover:text-blue-600 transition-all duration-300 font-['Poppins']"
-                  activeClass="text-blue-600 font-semibold"
+                  className="block py-2 text-lg font-medium text-[#00B7FF] hover:text-[#00B7FF] transition-all duration-300 font-['Poppins']"
+                  activeClass="text-[#00B7FF] font-semibold"
                 >
                   {item.name}
                 </Link>

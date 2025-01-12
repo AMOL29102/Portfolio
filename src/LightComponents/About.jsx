@@ -117,10 +117,10 @@ function About() {
                 <li>🎮 Hobbies : <br /> Playing Chess, Coding and Geopolitics.</li>
                 <li><p>🌐 Find me on coding platforms : </p><br />
                   <div className='inline lg:p-8'>
-                    <a href="https://leetcode.com/u/amolpatilamp555/" target='_blank' className="text-blue-400 lg:ml-12 hover:text-blue-500"><ExternalLink className="w-4 h-4 inline" />  LeetCode</a>
+                    <a href="https://leetcode.com/u/amolpatilamp555/" target='_blank' className="text-blue-600 lg:ml-12 hover:font-medium"><ExternalLink className="w-4 h-4 inline" />  LeetCode</a>
                   </div>
                   <div className='inline lg:p-8 p-4'>
-                    <a href="https://www.codechef.com/users/amolpatilamp55" target='_blank' className="text-blue-400  hover:text-blue-500"><ExternalLink className="w-4 h-4 inline" /> CodeChef</a>
+                    <a href="https://www.codechef.com/users/amolpatilamp55" target='_blank' className="text-blue-600  hover:font-medium"><ExternalLink className="w-4 h-4 inline" /> CodeChef</a>
                   </div>
                 </li>
               </ul>

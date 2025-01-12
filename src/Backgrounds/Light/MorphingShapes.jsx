@@ -38,7 +38,7 @@ function MorphingShapes() {
 
     const material = new THREE.MeshStandardMaterial({
       // color: "#3B82F6",
-      color:"#60A5FA",
+      color:"#00B7FF",
       // color: 0xff5722,
       // color:0xffa500,
       wireframe: true,
@@ -48,7 +48,7 @@ function MorphingShapes() {
     scene.add(shape);
 
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
     scene.add(ambientLight);
 
     const pointLight = new THREE.PointLight(0xffffff, 0.5);
