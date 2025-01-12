@@ -116,7 +116,7 @@ function Navbar() {
               ))}
               <button
                 onClick={toggleTheme}
-                className="flex items-center justify-center p-2 rounded-full hover:bg-[#00B7FF] transition-colors duration-300"
+                className="flex items-center justify-center p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
               >
                 {isDarkMode ? (
                   <Sun className="w-6 h-6 text-white" />
@@ -135,7 +135,7 @@ function Navbar() {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="md:hidden bg-white/95 text-[#00B7FF] px-4 py-6 rounded-lg shadow-lg"
+            className="md:hidden bg-white/95 text-black px-4 py-6 rounded-lg shadow-lg"
           >
             <button onClick={toggleTheme} className="mb-4">
               {isDarkMode ? <Sun className="w-6 h-6 text-white" /> : <Moon className="w-6 h-6" />}
@@ -156,7 +156,7 @@ function Navbar() {
                   offset={-150}
                   duration={500}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2 text-lg font-medium text-[#00B7FF] hover:text-[#00B7FF] transition-all duration-300 font-['Poppins']"
+                  className="block py-2 text-lg font-medium hover:text-[#00B7FF] transition-all duration-300 font-['Poppins']"
                   activeClass="text-[#00B7FF] font-semibold"
                 >
                   {item.name}

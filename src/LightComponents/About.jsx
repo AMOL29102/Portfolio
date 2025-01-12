@@ -85,7 +85,7 @@ function About() {
             <h3 className="text-2xl font-semibold mb-4 text-gray-700">Experience</h3>
             <div className="space-y-6">
               <motion.div
-                className="bg-[#DEEEFF] p-6 rounded-lg shadow-lg"
+                className="bg-[#DEEEFF] p-6 rounded-lg shadow-lg bg-opacity-[0.5]"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
@@ -108,7 +108,7 @@ function About() {
           <div className="max-w-full">
             <h3 className="text-2xl font-semibold mb-4 text-gray-700">Quick Facts</h3>
             <motion.div
-              className="bg-[#DEEEFF] p-6 rounded-lg shadow-lg"
+              className="bg-[#DEEEFF] p-6 rounded-lg shadow-lg bg-opacity-[0.5]"
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
