@@ -91,7 +91,7 @@ function About() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <h4 className="text-xl font-semibold mb-3">Freelance Intern at Nikhil Motors</h4>
+                <h4 className="text-xl font-semibold mb-3">SDE Intern at Nikhil Motors</h4>
                 <p className="text-gray-300">
                   💼 August 2024 - October 2024 <br />
                   As a Full Stack Developer, I contributed to a web app to boost user engagement and expand the store's reach. Key contributions:
