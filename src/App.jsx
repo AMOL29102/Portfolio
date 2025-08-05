@@ -25,9 +25,7 @@ import LightSkills from './LightComponents/Skills';
 import LightProjects from './LightComponents/Projects';
 import LightContact from './LightComponents/Contact';
 
-
 import "./style.css"
-
 
 function AppContent() {
 
