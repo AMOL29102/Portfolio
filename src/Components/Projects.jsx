@@ -45,7 +45,7 @@ const projects = [
     title: 'Portfolio Website 02',
     description: 'A personal portfolio showcasing projects, skills, and achievements with a clean, responsive design. It offers an engaging user experience, featuring interactive elements, live demos, and repositories to highlight expertise and accomplishments.',
     imageDark: '/images/portfolio2.png',
-    imageLight: '/images/LightPortfolio2.png',
+    imageLight: '/images/portfolio2.png',
     demo: 'https://patilamol-portfolio.vercel.app/',
     source: 'https://github.com/AMOL29102/portfolio-template',
     techStack: ['', ''],
