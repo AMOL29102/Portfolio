@@ -18,6 +18,7 @@ const projects = [
     description: 'A blockchain-powered system for authenticating products, combating counterfeit goods in global trade. Features include automated QR code generation, consumer code dispatch, and scalable tracking of products across manufacturers, sellers, and customers.',
     image: '/images/Project2.jpg',
     source: 'https://github.com/AMOL29102/Fake-Product-Identification',
+    demo:'https://fake-product-identification-tan.vercel.app/',
     techStack: ['', '', '', '', '',''],
     techImages: ['/images/pg.png', '/images/express.png', '/images/react.png', '/images/node.png', '/images/css.png', '/images/solidity.png']
   },
@@ -26,28 +27,29 @@ const projects = [
     description: 'A platform to combat food waste by connecting restaurants with surplus food to individuals in need. RescueBites streamlines food access via pincode, enhances community engagement, and automates food request removal after 18 hours to optimize resource management.',
     image: '/images/Project3.png',
     source: 'https://github.com/AMOL29102/Leftover-Food-Management',
+    demo:'https://rescuebite-sigma.vercel.app/',
     techStack: ['', '', '', '', ''],
     techImages: ['/images/pg.png', '/images/express.png', '/images/react.png', '/images/node.png', '/images/css.png']
   },
   {
-    title: 'Portfolio Website',
+    title: 'Portfolio Website 01',
     description: 'A personal portfolio showcasing projects, skills, and achievements with a clean, responsive design. It offers an engaging user experience, featuring interactive elements, live demos, and repositories to highlight expertise and accomplishments.',
     imageDark: '/images/DarkPortfolio.png',
     imageLight: '/images/LightPortfolio2.png',
     demo: 'https://patilamol.vercel.app/',
     source: 'https://github.com/AMOL29102/Portfolio',
     techStack: ['', ''],
-    techImages: ['/images/react.png', '/images/tailwind.png']
+    techImages: ['/images/react.png', '/images/tailwind.png', '/images/node.png']
   },
   {
-    title: 'Portfolio Website',
+    title: 'Portfolio Website 02',
     description: 'A personal portfolio showcasing projects, skills, and achievements with a clean, responsive design. It offers an engaging user experience, featuring interactive elements, live demos, and repositories to highlight expertise and accomplishments.',
-    imageDark: '/images/DarkPortfolio.png',
+    imageDark: '/images/portfolio2.png',
     imageLight: '/images/LightPortfolio2.png',
-    demo: 'https://patilamol.vercel.app/',
-    source: 'https://github.com/AMOL29102/Portfolio',
+    demo: 'https://patilamol-portfolio.vercel.app/',
+    source: 'https://github.com/AMOL29102/portfolio-template',
     techStack: ['', ''],
-    techImages: ['/images/react.png', '/images/tailwind.png']
+    techImages: ['/images/react.png', '/images/tailwind.png', '/images/node.png']
   }
 ];
 
