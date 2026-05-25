@@ -55,7 +55,7 @@ function MorphingShapes() {
     scene.add(pointLight);
 
     // Camera Position
-    camera.position.z = 100;
+    camera.position.z = 50;
 
     // Geometry switch interval
     const switchGeometry = () => {

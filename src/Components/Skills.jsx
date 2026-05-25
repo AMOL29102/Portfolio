@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useTheme } from '../contexts/ThemeContext';
 
 const skills = [
   { name: 'HTML', icon: '/images/html.png' },
@@ -24,6 +25,8 @@ function Skills() {
     triggerOnce: true,
     threshold: 0.1,
   });
+  
+  const { isDarkMode } = useTheme();
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -50,9 +53,9 @@ function Skills() {
   };
 
   return (
-    <div className="min-h-screen py-20">
+    <div className={`min-h-screen py-20 ${isDarkMode ? '' : 'bg-transparent'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-16 text-white">Skills</h2>
+        <h2 className={`text-4xl font-bold text-center mb-16 ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Skills</h2>
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -67,14 +70,18 @@ function Skills() {
               whileHover={{ scale: 1.1 }}
               className="flex flex-col items-center"
             >
-              <div className="relative w-32 h-32 rounded-[20%] bg-gray-800 bg-opacity-50 border-2 border-blue-500 flex items-center justify-center text-4xl mb-4 shadow-lg hover:shadow-blue-500/50 transition-all">
+              <div className={`relative w-32 h-32 rounded-[20%] flex items-center justify-center text-4xl mb-4 transition-all ${
+                isDarkMode 
+                  ? 'bg-gray-800 bg-opacity-50 border-2 border-blue-500 shadow-lg hover:shadow-blue-500/50' 
+                  : 'bg-gray-100 bg-opacity-50 border-2 border-[#8fb6d6] shadow-md hover:shadow-lg hover:border-[#6c9ac6]'
+              }`}>
                 <img
                   src={skill.icon}
                   alt={`${skill.name} icon`}
                   className="w-16 h-16 object-contain"
                 />
               </div>
-              <span className="text-lg font-medium text-white">{skill.name}</span>
+              <span className={`text-lg font-medium ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>{skill.name}</span>
             </motion.div>
           ))}
         </motion.div>

@@ -73,7 +73,11 @@ function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#f0f0f0] shadow-xl bg-opacity-[0.95]' : 'bg-transparent'
+        isScrolled 
+          ? isDarkMode 
+            ? 'bg-gray-900/90 backdrop-blur-md shadow-lg' 
+            : 'bg-[#f0f0f0] shadow-xl bg-opacity-[0.95]'
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +85,7 @@ function Navbar() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-3xl font-bold font-['Poppins'] text-[#00B7FF]"
+            className={`text-3xl font-bold font-['Poppins'] ${isDarkMode ? 'text-blue-600' : 'text-[#00B7FF]'}`}
           >
             Portfolio
           </motion.div>
@@ -90,7 +94,7 @@ function Navbar() {
             <motion.button
               ref={buttonRef} // Attach ref to the button
               onClick={toggleMenu}
-              className="text-gray-600 hover:text-[#00B7FF] focus:outline-none"
+              className={`focus:outline-none ${isDarkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-[#00B7FF]'}`}
               initial={{ scale: 1 }}
               animate={{ scale: menuOpen ? 1.2 : 1 }}
               transition={{ type: 'spring', stiffness: 300, damping: 10 }}
@@ -108,18 +112,20 @@ function Navbar() {
                   to={item.to}
                   spy={true}
                   offset={-100} // Adjust as needed
-                  className="cursor-pointer px-4 py-2 rounded-md text-lg font-medium text-black hover:text-[#00B7FF] transition-all duration-300 font-['Poppins']"
-                  activeClass="text-[#00B7FF] font-semibold"
+                  className={`cursor-pointer px-4 py-2 rounded-md text-lg font-medium transition-all duration-300 font-['Poppins'] ${
+                    isDarkMode ? 'hover:text-blue-400' : 'text-black hover:text-[#00B7FF]'
+                  }`}
+                  activeClass={isDarkMode ? "text-blue-500 font-semibold" : "text-[#00B7FF] font-semibold"}
                 >
                   {item.name}
                 </Link>
               ))}
               <button
                 onClick={toggleTheme}
-                className="flex items-center justify-center p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                className={`flex items-center justify-center p-2 rounded-full transition-colors duration-300 ${isDarkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
               >
                 {isDarkMode ? (
-                  <Sun className="w-6 h-6 text-white" />
+                  <Sun className="w-6 h-6 text-white-400" />
                 ) : (
                   <Moon className="w-6 h-6 text-black" />
                 )}
@@ -135,10 +141,10 @@ function Navbar() {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="md:hidden bg-white/95 text-black px-4 py-6 rounded-lg shadow-lg"
+            className={`md:hidden px-4 py-6 rounded-lg shadow-lg ${isDarkMode ? 'bg-gray-900/95 text-white' : 'bg-white/95 text-black'}`}
           >
             <button onClick={toggleTheme} className="mb-4">
-              {isDarkMode ? <Sun className="w-6 h-6 text-white" /> : <Moon className="w-6 h-6" />}
+              {isDarkMode ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
             </button>
 
             {navItems.map((item, index) => (
@@ -156,8 +162,8 @@ function Navbar() {
                   offset={-150}
                   duration={500}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-2 text-lg font-medium hover:text-[#00B7FF] transition-all duration-300 font-['Poppins']"
-                  activeClass="text-[#00B7FF] font-semibold"
+                  className={`block py-2 text-lg font-medium transition-all duration-300 font-['Poppins'] ${isDarkMode ? 'hover:text-blue-400' : 'hover:text-[#00B7FF]'}`}
+                  activeClass={isDarkMode ? "text-blue-500 font-semibold" : "text-[#00B7FF] font-semibold"}
                 >
                   {item.name}
                 </Link>
